@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn2if4o3qsu8b"]
+
+[ext_resource type="Script" uid="uid://bsnpghuj0iphi" path="res://Enemy/swordsman.gd" id="1_ph2dq"]
+[ext_resource type="Texture2D" uid="uid://ct6qhqt1la0t4" path="res://Assets/Units/Red Units/Warrior/Warrior_Idle.png" id="2_vqsd3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uxihw"]
+radius = 17.029387
+
+[node name="Swordsman" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 7
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_ph2dq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vqsd3")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 8)
+shape = SubResource("CircleShape2D_uxihw")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
