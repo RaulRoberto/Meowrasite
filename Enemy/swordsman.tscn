@@ -1,54 +1,35 @@
-[gd_scene load_steps=10 format=3 uid="uid://dn2if4o3qsu8b"]
+[gd_scene load_steps=13 format=3 uid="uid://dn2if4o3qsu8b"]
 
 [ext_resource type="Script" uid="uid://bsnpghuj0iphi" path="res://Enemy/swordsman.gd" id="1_ph2dq"]
-[ext_resource type="Texture2D" uid="uid://dq0vaw5621sup" path="res://Assets/Units/Red Units/Warrior/Warrior_Run.png" id="2_ph2dq"]
+[ext_resource type="Texture2D" uid="uid://ct6qhqt1la0t4" path="res://Assets/Units/Red Units/Warrior/Warrior_Idle.png" id="2_ph2dq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph2dq"]
+bg_color = Color(0.17254902, 0, 0, 0.6313726)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.54642624, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqsd3"]
+bg_color = Color(0.9969458, 3.4413488e-06, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uxihw"]
 radius = 17.029387
-
-[sub_resource type="Animation" id="Animation_ph2dq"]
-resource_name = "idle"
-length = 0.8
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [2],
-"method": &"ChangeState"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_vqsd3"]
 length = 0.001
@@ -149,6 +130,50 @@ tracks/4/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ph2dq"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [2],
+"method": &"ChangeState"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_pdbhw"]
 resource_name = "run"
 length = 0.6
@@ -204,12 +229,26 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_ph2dq"]
 radius = 61.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vqsd3"]
+radius = 30.016663
+
 [node name="Swordsman" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 23
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ph2dq")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -32.0
+offset_top = -80.0
+offset_right = 32.0
+offset_bottom = -64.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ph2dq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vqsd3")
+max_value = 10.0
+value = 8.13
+show_percentage = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ph2dq")
@@ -238,5 +277,16 @@ shape = SubResource("CircleShape2D_ph2dq")
 wait_time = 0.8
 one_shot = true
 
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(1, 3)
+shape = SubResource("CircleShape2D_vqsd3")
+debug_color = Color(0.9730837, 0, 0.43985236, 0.41960785)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

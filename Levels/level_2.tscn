@@ -4,4 +4,4 @@
 
 [node name="Level2" type="Node2D"]
 
-[node name="TileMapLayer" parent="." instance=ExtResource("1_ll1bl")]
+[node name="TileMapLayer" parent="." groups=["MainScene"] instance=ExtResource("1_ll1bl")]

@@ -1,17 +1,64 @@
-[gd_scene load_steps=7 format=4 uid="uid://cuigqv7mhal0l"]
+[gd_scene load_steps=12 format=4 uid="uid://cuigqv7mhal0l"]
 
 [ext_resource type="Texture2D" uid="uid://b3hyunlruj2dk" path="res://Assets/Terrain/Tileset/Water Background color.png" id="1_dilhk"]
+[ext_resource type="Script" uid="uid://dtm3q7wv3due6" path="res://Levels/level_1.gd" id="1_rfktq"]
 [ext_resource type="PackedScene" uid="uid://dxdanifprprbx" path="res://Prefabs/level_map.tscn" id="2_3mhv4"]
 [ext_resource type="PackedScene" uid="uid://bwg0407vsjaj0" path="res://Characters/player.tscn" id="3_3mhv4"]
 [ext_resource type="PackedScene" uid="uid://00vk518p2a6a" path="res://Prefabs/doodads_tilemap.tscn" id="3_rf6l5"]
 [ext_resource type="PackedScene" uid="uid://dn2if4o3qsu8b" path="res://Enemy/swordsman.tscn" id="5_syshm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_syshm"]
-vertices = PackedVector2Array(900.35156, 472, 933, 154, 933, 614, 921, 566, 473, 522, 833.8203, 510.42188, 856, 516.35156, 821, 550, 814.4219, 238.17969, 878.1797, 433.57813, 856, 427.64844, 729, 330, 798.1797, 254.42188, 894.4219, 449.8203, 820.35156, 216, 885, 154, 817.5781, 494.1797, 776, 260.35156, 833.8203, 433.57813, 814.4219, 193.82031, 869, 138, 885, 138, 753.8203, 254.42188, 729, 246, 737.5781, 238.17969, 649, 410, 811.64844, 472, 473, 438, 565, 410, 382.42188, 398.1797, 388.35156, 376, 549, 310, 549, 394, 457, 422, 382.42188, 353.8203, 148.35156, 264, 142.42188, 241.82031, 613, 246, 613, 294, 565, 294, 817.5781, 449.8203, 713, 346, 713, 330, 933, 26, 933, 38, 885, 38, 89, 26, 885, 54, 869, 54, 393, 38, 393, 154, 409, 138, 776, 171.64844, 753.8203, 177.57813, 409, 54, 393, 54, 245, 38, 245, 54, 229, 54, 229, 202, 245, 202, 245, 218, 126.17969, 225.57813, 329, 218, 329, 202, 345, 202, 629, 230, 731.64844, 216, 713, 230, 345, 154, 737.5781, 193.82031, 393, 138, 798.1797, 177.57813, 713, 246, 629, 246, 565, 310, 142.42188, 286.1797, 565, 394, 457, 438, 649, 394, 665, 394, 665, 346, 309, 422, 309, 438, 293, 438, 126.17969, 302.42188, 299.64844, 376, 305.57813, 398.1797, 293, 522, 309, 522, 309, 538, 805, 566, 457, 538, 457, 522, 821, 566, 921, 614, 894.4219, 494.1797, 878.1797, 510.42188, 905, 550, 905, 566, 805, 614, 217, 614, 217, 502, 201, 502, 201, 486, 81.82031, 302.42188, 117, 486, 117, 502, 101, 502, 65.578125, 286.1797, 101, 614, 25, 614, 25, 90, 59.648438, 264, 73, 90, 73, 74, 89, 74, 104, 219.64844, 366.1797, 414.42188, 366.1797, 337.57813, 344, 331.64844, 81.82031, 225.57813, 65.578125, 241.82031, 104, 308.35156, 321.8203, 337.57813, 305.57813, 353.8203, 321.8203, 414.42188, 344, 420.35156)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(1, 0, 13), PackedInt32Array(14, 15, 1, 13, 9, 8), PackedInt32Array(16, 5, 4), PackedInt32Array(17, 12, 11), PackedInt32Array(11, 10, 18), PackedInt32Array(15, 14, 19, 20, 21), PackedInt32Array(22, 17, 11), PackedInt32Array(22, 11, 23, 24), PackedInt32Array(25, 26, 16, 4, 27, 28), PackedInt32Array(29, 30, 31, 32, 33), PackedInt32Array(31, 30, 34), PackedInt32Array(35, 36, 37, 38, 39), PackedInt32Array(11, 18, 40, 41, 42), PackedInt32Array(43, 44, 45, 46), PackedInt32Array(46, 45, 47, 48, 49), PackedInt32Array(50, 51, 48, 20, 52, 53), PackedInt32Array(48, 51, 54), PackedInt32Array(54, 55, 49), PackedInt32Array(56, 57, 58, 46), PackedInt32Array(59, 60, 61, 62), PackedInt32Array(63, 64, 65, 66), PackedInt32Array(67, 68, 66, 65, 69, 50, 70), PackedInt32Array(50, 71, 51), PackedInt32Array(20, 19, 72), PackedInt32Array(24, 23, 73, 68, 67), PackedInt32Array(63, 66, 74, 37, 36, 62, 61), PackedInt32Array(35, 39, 75, 31, 76), PackedInt32Array(33, 32, 77, 28, 27, 78), PackedInt32Array(26, 25, 79, 80, 40), PackedInt32Array(80, 81, 41, 40), PackedInt32Array(82, 83, 84, 85, 86, 87), PackedInt32Array(88, 89, 90), PackedInt32Array(91, 92, 93, 4, 7, 94), PackedInt32Array(2, 95, 3), PackedInt32Array(96, 0, 3), PackedInt32Array(97, 96, 3, 98), PackedInt32Array(3, 99, 98), PackedInt32Array(97, 98, 7, 6), PackedInt32Array(92, 91, 100, 101, 90), PackedInt32Array(102, 103, 104, 84), PackedInt32Array(105, 106, 107, 108, 109), PackedInt32Array(108, 110, 111, 112, 113), PackedInt32Array(114, 115, 116, 59, 62, 117), PackedInt32Array(118, 29, 33), PackedInt32Array(31, 34, 119), PackedInt32Array(90, 101, 102, 88), PackedInt32Array(84, 88, 102), PackedInt32Array(85, 76, 31, 120), PackedInt32Array(48, 54, 49), PackedInt32Array(46, 49, 56), PackedInt32Array(116, 46, 58, 59), PackedInt32Array(20, 72, 52), PackedInt32Array(50, 53, 70), PackedInt32Array(114, 117, 121, 112), PackedInt32Array(112, 121, 122), PackedInt32Array(112, 122, 113), PackedInt32Array(108, 113, 109), PackedInt32Array(106, 105, 123, 104), PackedInt32Array(104, 123, 85, 84), PackedInt32Array(31, 119, 120), PackedInt32Array(85, 120, 124), PackedInt32Array(85, 124, 125), PackedInt32Array(85, 125, 86), PackedInt32Array(82, 87, 126), PackedInt32Array(82, 126, 127), PackedInt32Array(33, 82, 127), PackedInt32Array(33, 127, 118)])
 
-[node name="Level1" type="Node2D"]
-position = Vector2(-1, 2)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfktq"]
+bg_color = Color(0.2627451, 0.23921569, 0.003921569, 0.5137255)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.44705883, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0urlm"]
+bg_color = Color(0.9647059, 0.94509804, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77x7w"]
+bg_color = Color(0.29803923, 0.11372549, 0.11372549, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.56085813, 0.12159795, 0.12142276, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xoyoh"]
+bg_color = Color(0.91480815, 0.04278653, 2.8878452e-07, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Level1" type="Node2D" groups=["MainScene"]]
+script = ExtResource("1_rfktq")
 
 [node name="WaterBackgroundColor" type="Sprite2D" parent="."]
 position = Vector2(479.50006, 318)
@@ -31,5 +78,63 @@ tile_map_data = PackedByteArray("AAAVABcAAAAAAAAAAQAwAA0AAAAAAAAAAQA1AB0AAAAAAAA
 [node name="Player" parent="." instance=ExtResource("3_3mhv4")]
 position = Vector2(486, 326)
 
-[node name="Swordsman" parent="." instance=ExtResource("5_syshm")]
+[node name="ArrowHolder" type="Node2D" parent="."]
+
+[node name="EnemyHolder" type="Node2D" parent="."]
+
+[node name="Swordsman" parent="EnemyHolder" instance=ExtResource("5_syshm")]
 position = Vector2(133, 100)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 963.0
+offset_bottom = 649.0
+
+[node name="ExpBar" type="ProgressBar" parent="Control"]
+modulate = Color(1, 1, 1, 0.70980394)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -334.5
+offset_right = 334.5
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_rfktq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0urlm")
+value = 14.53
+show_percentage = false
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 81.0
+offset_top = -115.0
+offset_right = 342.0
+offset_bottom = -77.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_77x7w")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xoyoh")
+max_value = 10.0
+value = 5.11
+show_percentage = false
+
+[node name="TextureRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 1.0
+offset_right = 142.0
+offset_bottom = 41.0
+color = Color(0.32172796, 0.32172796, 0.32172796, 1)
+
+[node name="LevelLabel" type="Label" parent="Control"]
+layout_mode = 1
+offset_left = 46.0
+offset_top = 11.0
+offset_right = 165.0
+offset_bottom = 52.0
+text = "LEVEL:40"

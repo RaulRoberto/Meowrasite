@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckcg10p8akolx"]
+
+[ext_resource type="Script" uid="uid://c618mrsknlckm" path="res://Prefabs/Arrow/arrow.gd" id="1_ugnvi"]
+[ext_resource type="Texture2D" uid="uid://35sqh3ce8k62" path="res://Assets/Units/Blue Units/Archer/Arrow.png" id="2_3jlwv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xevx3"]
+size = Vector2(30, 6)
+
+[node name="Arrow" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 16
+motion_mode = 1
+script = ExtResource("1_ugnvi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3jlwv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 0)
+shape = SubResource("RectangleShape2D_xevx3")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
