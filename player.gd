@@ -8,6 +8,9 @@ class_name Player
 @onready var player_sprite:=$Sprite2D
 @onready var anim_player:=$AnimationPlayer
 @onready var attack_timer :=$AttackTimer
+@onready var aim_arrow:= $AimArrow
+@onready var muzzle:= $Muzzle
+
 
 
 var direction: Vector2
@@ -16,6 +19,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 @export var arrow_scene_string : String
+@export var bullet_scene: PackedScene
+
 var arrow_scene : Resource
 var current_scene :Level
 
@@ -54,8 +59,27 @@ func _process(delta: float) -> void:
 		#player_sprite.set_flip_h(false)
 	#if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 		#Attack()
+	look_at_mouse()
 	direction=direction.normalized()
 	
+func look_at_mouse():
+	var mouse_pos = get_global_mouse_position()
+	var direction= mouse_pos - global_position
+	aim_arrow.rotation=direction.angle()+PI/2
+	#aim_arrow.look_at(get_global_mouse_position())
+	
+func _input(event):
+	if(event is InputEventMouseButton):
+		if(event.button_index == MOUSE_BUTTON_LEFT and event.pressed):
+			shoot()
+			
+func shoot():
+	var bullet = bullet_scene.instantiate()
+	bullet.global_position = muzzle.global_position
+	
+	var mouse_pos = get_global_mouse_position()
+	bullet.direction = (mouse_pos  - global_position).normalized()
+	get_tree().current_scene.add_child(bullet)
 
 func _physics_process(delta: float) -> void:
 	
