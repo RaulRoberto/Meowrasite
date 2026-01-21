@@ -6,6 +6,8 @@ class_name Player
 @onready var run_sheet:= load("res://Assets/Units/Blue Units/Archer/Archer_Run.png")
 
 @onready var player_sprite:=$Sprite2D
+@onready var temp_sprite:= $Sprite2D
+
 @onready var anim_player:=$AnimationPlayer
 @onready var attack_timer :=$AttackTimer
 @onready var aim_arrow:= $AimArrow
@@ -169,6 +171,9 @@ func shoot_simbio_skill():
 	get_tree().current_scene.add_child(simbio_bullet)
 	
 func reactive_simbio():
+	if marked_enemy:
+		player_sprite = marked_enemy.current_sprite
+		position = marked_enemy.position
 	if marked_enemy == null:
 		return
 	if not marked_enemy.is_marked:

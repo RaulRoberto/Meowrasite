@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Swordsman
 
 @onready var nav_agent := $NavigationAgent2D
-@onready var anim_player:= $AnimationPlayer
+#@onready var anim_player:= $AnimationPlayer
 @onready var health_bar := $ProgressBar
 #@onready var character:= $Vector2
 @onready var current_sprite := $Sprite2D
@@ -41,7 +41,7 @@ func _ready() -> void:
 	current_scene = get_tree().get_first_node_in_group("MainScene")
 	SetStats(1) #isso sera implementado em outro momento no mapa principal
 	player_ref = get_tree().get_first_node_in_group("Player")
-	anim_player.play("run")
+	#anim_pladyer.play("run")
 
 func _process(delta):
 	if is_marked:
@@ -56,13 +56,9 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	if is_simbio:
 		simbio_timer-=delta
-		handle_player_input(delta)
-		
-		
+		handle_player_input(delta)		
 		if simbio_timer <=0:
 			end_simbio()
-
-
 
 	
 func handle_player_input(delta):
@@ -76,6 +72,7 @@ func handle_player_input(delta):
 func end_simbio():
 	is_simbio=false
 	set_physics_process(false)
+	player_ref.player_sprite = player_ref.temp_sprite
 	queue_free()
 	player_ref.global_position = global_position
 	player_ref.visible = true
@@ -100,17 +97,17 @@ func start_simbio(player_ref):
 	simbio_timer = simbio_duration
 	set_physics_process(true)
 		
-func ChangeState(new_state:STATE):
-	if(new_state==STATE.RUN):
-		current_sprite.texture = run_sheet
-		#anim_player.play("run")
-	elif(new_state==STATE.ATTACK):
-		current_sprite.texture = attack_sheet
-		#anim_player.play("attack")
-	else: #(new_state==STATE.IDLE):
-		current_sprite.texture = idle_sheet
-		#anim_player.play("idle")
-	current_state = new_state
+#func ChangeState(new_state:STATE):
+	#if(new_state==STATE.RUN):
+		#current_sprite.texture = run_sheet
+		##anim_player.play("run")
+	#elif(new_state==STATE.ATTACK):
+		#current_sprite.texture = attack_sheet
+		##anim_player.play("attack")
+	#else: #(new_state==STATE.IDLE):
+		#current_sprite.texture = idle_sheet
+		##anim_player.play("idle")
+	#current_state = new_state
 
 
 func SetStats(level_num :int):
@@ -126,16 +123,17 @@ func UpdateUI():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):	
 		player_in_range = true
-		if current_state==STATE.RUN:
-			anim_player.play("attack")
+		#if current_state==STATE.RUN:
+			#anim_player.play("attack")
 
 
 func _on_timer_timeout() -> void:
+	print("tmieout")
 	#current_state = STATE.RUN
-	if player_in_range and can_attack:
-		anim_player.play("attack")
-	else:
-		anim_player.play("run")
+	#if player_in_range and can_attack:
+		#anim_player.play("attack")
+	#else:
+		#anim_player.play("run")
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

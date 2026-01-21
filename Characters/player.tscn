@@ -194,7 +194,6 @@ motion_mode = 1
 script = ExtResource("1_eovys")
 arrow_scene_string = "res://Prefabs/Arrow/arrow.tscn"
 skill_scene = ExtResource("2_65n15")
-simbio_cooldown = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_eovys")
