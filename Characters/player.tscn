@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwg0407vsjaj0"]
+[gd_scene load_steps=14 format=3 uid="uid://bwg0407vsjaj0"]
 
 [ext_resource type="Script" uid="uid://b454j5taquokm" path="res://player.gd" id="1_eovys"]
 [ext_resource type="PackedScene" uid="uid://c7jsan3al361q" path="res://Prefabs/Bullet.tscn" id="2_65n15"]
-[ext_resource type="Texture2D" uid="uid://c2esuw7qf30vu" path="res://Assets/Units/Blue Units/Archer/Archer_Idle.png" id="2_eovys"]
+[ext_resource type="Texture2D" uid="uid://c2esuw7qf30vu" path="res://Assets/Units/Blue Units/Archer/Archer_Idle_.png" id="2_eovys"]
 [ext_resource type="Texture2D" uid="uid://dpd4gv0o8icqa" path="res://Assets/Units/Blue Units/Archer/Mira.png" id="3_vb825"]
+[ext_resource type="Script" uid="uid://2whv7xat5b1f" path="res://UI/canvas_layer.gd" id="5_l48on"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eovys"]
 radius = 13.0
@@ -183,12 +184,17 @@ _data = {
 &"run": SubResource("Animation_l48on")
 }
 
+[sub_resource type="Theme" id="Theme_l48on"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l48on"]
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 22
 motion_mode = 1
 script = ExtResource("1_eovys")
 arrow_scene_string = "res://Prefabs/Arrow/arrow.tscn"
-bullet_scene = ExtResource("2_65n15")
+skill_scene = ExtResource("2_65n15")
+simbio_cooldown = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_eovys")
@@ -214,5 +220,34 @@ one_shot = true
 
 [node name="Muzzle" type="Marker2D" parent="."]
 rotation = 1.5707964
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("5_l48on")
+
+[node name="SimbioIcon" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_l48on")
+texture = SubResource("PlaceholderTexture2D_l48on")
+
+[node name="SimbioCD" type="Label" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 8.0
+offset_bottom = 31.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

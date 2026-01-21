@@ -3,13 +3,13 @@ class_name Arrow
 
 var target: CharacterBody2D
 var target_coords: Vector2
-var flight_speed:= 350
+var flight_speed:= 500
 var direction : Vector2
 var damage: float
 
-func _ready() -> void:
-	target_coords = target.position
-	direction =position.direction_to(target_coords)
+#func _readyDS() -> void:
+	#target_coords = target.position
+	#direction =position.direction_to(target_coords)
 	
 func _physics_process(delta: float) -> void:
 	

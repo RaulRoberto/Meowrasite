@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dadluqsxqj163"
-path="res://.godot/imported/Archer_Idle (Copy).png-89b0d0b82b0a858efd4eed657d1c376f.ctex"
+uid="uid://dlpp7jr83a7hf"
+path="res://.godot/imported/Arrow_Skill.png-507025f951e637c921381e151e4bd529.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Units/Blue Units/Archer/Archer_Idle (Copy).png"
-dest_files=["res://.godot/imported/Archer_Idle (Copy).png-89b0d0b82b0a858efd4eed657d1c376f.ctex"]
+source_file="res://Assets/Units/Blue Units/Archer/Arrow_Skill.png"
+dest_files=["res://.godot/imported/Arrow_Skill.png-507025f951e637c921381e151e4bd529.ctex"]
 
 [params]
 
